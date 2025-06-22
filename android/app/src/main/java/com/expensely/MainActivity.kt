@@ -1,4 +1,4 @@
-package com.firebase_auth
+package com.expensely;
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

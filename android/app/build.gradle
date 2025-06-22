@@ -1,6 +1,9 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply plugin: 'com.google.gms.google-services'
+
+
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -77,13 +80,14 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.firebase_auth"
+    namespace "com.expensely"
     defaultConfig {
-        applicationId "com.firebase_auth"
+        applicationId "com.expensely"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     signingConfigs {
         debug {
@@ -116,4 +120,8 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+    implementation 'com.google.firebase:firebase-auth:22.3.0'
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
 }
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
