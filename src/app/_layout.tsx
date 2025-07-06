@@ -10,6 +10,7 @@ import BudgetScreen from '../app/budget';
 import GroupsScreen from '../app/groups';
 import ReportsScreen from '../app/reports';
 import AddScreen from '../app/add';
+import LoginScreen from '../fireauth/fireauth'
 
 const Tab = createBottomTabNavigator();
 
@@ -79,6 +80,16 @@ export default function Layout() {
           tabBarLabel: 'Add',
           tabBarIcon: ({ color, size }) => (
             <Icon name="add-circle-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="login"
+        component={LoginScreen}
+        options={{
+          tabBarLabel: 'Login',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="login" size={size} color={color} />
           ),
         }}
       />

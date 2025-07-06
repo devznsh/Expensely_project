@@ -3,7 +3,7 @@ import { StatusBar, StyleSheet, useColorScheme, View, ActivityIndicator } from '
 import { NavigationContainer } from '@react-navigation/native'; 
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import FireAuth from './src/fireauth/fireauth'; 
-import Layout from './src/app/_layout';          
+import RootNavigator from './src/app/RootNavigator'; 
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -30,7 +30,7 @@ const App = () => {
     <NavigationContainer>
       <View style={styles.container}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        {user ? <Layout /> : <FireAuth />}
+        {user ? <RootNavigator /> : <FireAuth />} 
       </View>
     </NavigationContainer>
   );
