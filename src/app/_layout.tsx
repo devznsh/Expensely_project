@@ -11,6 +11,7 @@ import GroupsScreen from '../app/groups';
 import ReportsScreen from '../app/reports';
 import AddScreen from '../app/add';
 import LoginScreen from '../fireauth/fireauth'
+import ChatBot from '../chatbot/chatbot';
 
 const Tab = createBottomTabNavigator();
 
@@ -90,6 +91,16 @@ export default function Layout() {
           tabBarLabel: 'Login',
           tabBarIcon: ({ color, size }) => (
             <Icon name="login" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="ChatBot"
+        component={ChatBot}
+        options={{
+          tabBarLabel: 'Support',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="support-agent" size={size} color={color} />
           ),
         }}
       />

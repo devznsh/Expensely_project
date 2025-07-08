@@ -14,6 +14,7 @@ import { API } from '../services/api';
 import auth from '@react-native-firebase/auth';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+
 export default function AddExpense() {
   const [name, setName] = useState('');
   const [amount, setAmount] = useState('');
