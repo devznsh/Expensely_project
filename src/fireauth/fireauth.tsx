@@ -357,9 +357,14 @@ const AuthScreen = () => {
               onPress={onGoogleButtonPress}
               disabled={loading}
             >
-              <View style={styles.googleIconPlaceholder}>
-                <Text style={styles.googleIconText}>G</Text>
-              </View>
+              
+              
+              <View style={[styles.googleIconPlaceholder, { backgroundColor: 'white' }]}>
+  <Image
+    source={require('./assets/google.png')}
+    style={[styles.googleIconPlaceholder, { backgroundColor: 'white' }]}
+  />
+</View>
               <Text style={[styles.googleButtonText, { color: colors.text }]}>
                 Continue with Google
               </Text>
@@ -499,8 +504,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   logoImage: {
-  width: 60,
-  height: 60,
+  width: 150,
+  height: 200,
   resizeMode: 'contain',
 },
   title: {

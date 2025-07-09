@@ -73,3 +73,9 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+
+#keys
+/src/groups/expensely-f4c59-firebase-adminsdk-fbsvc-b0299fab54.json
+/src/groups/backend/firebase-admin-config.json
+/src/chatbot/server/expensely-f4c59-firebase-adminsdk-fbsvc-b0299fab54.json

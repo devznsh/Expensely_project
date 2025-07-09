@@ -36,14 +36,15 @@ const Chatbot: React.FC = () => {
   const sendMessage = async () => {
     if (!input.trim()) return;
 
+    const userMessage = input.trim();
     const newUserMsg: Message = {
       type: 'user',
-      text: input,
+      text: userMessage,
       timestamp: getCurrentTimestamp(),
     };
 
-    const updatedMessages = [newUserMsg, ...messages];
-    setMessages(updatedMessages);
+    // Add user message immediately and clear input
+    setMessages(prevMessages => [newUserMsg, ...prevMessages]);
     setInput('');
     setLoading(true);
 
@@ -55,7 +56,7 @@ const Chatbot: React.FC = () => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({ message: userMessage }),
       });
 
       const data = await response.json();
@@ -66,7 +67,8 @@ const Chatbot: React.FC = () => {
         timestamp: getCurrentTimestamp(),
       };
 
-      setMessages([botReply, ...updatedMessages]);
+      // Add bot reply to existing messages (including the user message)
+      setMessages(prevMessages => [botReply, ...prevMessages]);
     } catch (err) {
       console.error('Bot error:', err);
       const errorReply: Message = {
@@ -74,7 +76,8 @@ const Chatbot: React.FC = () => {
         text: 'Something went wrong while contacting the AI.',
         timestamp: getCurrentTimestamp(),
       };
-      setMessages([errorReply, ...updatedMessages]);
+      // Add error message to existing messages (including the user message)
+      setMessages(prevMessages => [errorReply, ...prevMessages]);
     }
 
     setLoading(false);
@@ -118,7 +121,10 @@ const Chatbot: React.FC = () => {
                     <Icon name="smart-toy" size={16} color="#5D5FEF" />
                   </View>
                 )}
-                <View style={styles.messageContent}>
+                <View style={[
+                  styles.messageContent,
+                  item.type === 'user' ? styles.userMessageContent : styles.botMessageContent
+                ]}>
                   <Text style={[
                     styles.messageText,
                     item.type === 'user' ? styles.userText : styles.botText
@@ -261,7 +267,6 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   messageContent: {
-    backgroundColor: '#FFFFFF',
     borderRadius: 20,
     padding: 12,
     shadowColor: '#000',
@@ -269,6 +274,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
+  },
+  userMessageContent: {
+    backgroundColor: '#5D5FEF',
+  },
+  botMessageContent: {
+    backgroundColor: '#FFFFFF',
   },
   messageText: {
     fontSize: 16,
@@ -381,13 +392,6 @@ const styles = StyleSheet.create({
   },
   sendButtonDisabled: {
     backgroundColor: '#E8E9FF',
-  },
-});
-
-// Update user bubble styles for the messages
-const userBubbleStyles = StyleSheet.create({
-  messageContent: {
-    backgroundColor: '#5D5FEF',
   },
 });
 

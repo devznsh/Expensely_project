@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1072103831722",
+    "project_id": "expensely-f4c59",
+    "storage_bucket": "expensely-f4c59.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1072103831722:android:1f34a76fcca966d9a238d3",
+        "android_client_info": {
+          "package_name": "com.expensely"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1072103831722-612d88ru8llpp3omhfnt8nosh2gi1vmc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.expensely",
+            "certificate_hash": "88404baa220198e35028416dcbbbc0eaf7338442"
+          }
+        },
+        {
+          "client_id": "1072103831722-p8tt47s448u0r7pouf0bvr1r9qqfh56e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.expensely",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1072103831722-fhlgrkjc467tbn2o0jgn8v7vb2pu1d1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ71iP-T7WvLiB_cjhw6WhNgjeR-ILMnQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1072103831722-1vqogtbf879l1kl3npvhou6i6uobtgu4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
